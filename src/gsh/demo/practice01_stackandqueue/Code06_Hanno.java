@@ -154,8 +154,5 @@ public class Code06_Hanno {
     }
 
 
-    public static void main1(String[] args) {
-
-    }
 
 }
