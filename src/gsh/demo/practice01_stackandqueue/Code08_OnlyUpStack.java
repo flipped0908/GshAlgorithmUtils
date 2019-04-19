@@ -43,6 +43,11 @@ public class Code08_OnlyUpStack {
         Stack<Node> stack = new Stack<>();
 
         for (int i = 0; i < arr.length; i++) {
+            if(stack.isEmpty()){
+                stack.push(new Node(i, arr[i]));
+                continue;
+            }
+
             while (!stack.isEmpty() && stack.peek().value > arr[i]) {
                 Node node1 = stack.pop();
                 res[node1.index][1] = i;
