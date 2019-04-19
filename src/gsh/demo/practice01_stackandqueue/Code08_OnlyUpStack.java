@@ -24,10 +24,10 @@ public class Code08_OnlyUpStack {
 
     /**
      * 思路：
-     * 一个 value 由大到小 的栈
-     * 如果 value 比 前边的小 就压入栈中
+     * 一个 value    由大到小 的栈  栈顶到栈底是递减的   找到的是 是比它小的值
+     * 如果 value 比 前边的大 就压入栈中
      * <p>
-     * 如果 value 比 前边的大 就 弹出
+     * 如果 value 比 前边的小 就 弹出
      * 弹出的时候开始 记录 结果 前边这个数 右边的值是新入的这个数的index  左边是他前边的数的dindex的值
      * <p>
      * 当数组结束时候  开始全部弹出栈
@@ -42,31 +42,41 @@ public class Code08_OnlyUpStack {
 
         Stack<Node> stack = new Stack<>();
 
-        stack.push(new Node(0, arr[0]));
-
-        for (int i = 1; i < arr.length; i++) {
-            int tmp = stack.peek().value;
-            if (arr[i] > tmp) {
+        for (int i = 0; i < arr.length; i++) {
+            while (!stack.isEmpty() && stack.peek().value > arr[i]) {
                 Node node1 = stack.pop();
                 res[node1.index][1] = i;
                 res[node1.index][0] = stack.isEmpty() ? -1 : stack.peek().index;
-            } else {
-                stack.push(new Node(i, arr[i]));
             }
+            stack.push(new Node(i, arr[i]));
         }
 
-
         while (!stack.isEmpty()) {
-
             Node node2 = stack.pop();
             res[node2.index][1] = -1;
             res[node2.index][0] = stack.isEmpty() ? -1 : stack.peek().index;
-
         }
 
         return res;
 
     }
+
+
+    public static void main(String[] args) {
+
+        int[] arr = {3, 4, 1, 5, 6, 2, 7};
+
+        int[][] res = getRightWay(arr);
+
+        for (int i = 0; i < res.length; i++) {
+            for (int j = 0; j < res[i].length; j++) {
+                System.out.print(res[i][j] + "  ");
+            }
+            System.out.println();
+        }
+
+    }
+
 
     /**
      *
