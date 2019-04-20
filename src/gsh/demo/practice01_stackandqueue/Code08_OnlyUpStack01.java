@@ -88,7 +88,10 @@ public class Code08_OnlyUpStack01 {
 
     public static void main(String[] args) {
 
-        int[] arr = {3, 4, 1, 5, 6, 6, 6, 2, 7, 7, 7};
+        //int[] arr = {3, 4, 1, 5, 6, 6, 6, 2, 7, 7, 7};
+
+        int[] arr = { 4, 3, 2, 5, 6};
+
 
         int[][] res = getRightWay(arr);
 
