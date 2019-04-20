@@ -48,7 +48,7 @@ public class Code09_MaxMatrixSize {
     }
 
     /**
-     *  获取每一行的值
+     *  获取每一行的值  重新组合每一行的值
      */
     public static int[] getOneRow(int[] arrold, int[] arrone) {
 
