@@ -9,19 +9,6 @@ public class GSHSingleNode {
         this.value = value;
     }
 
-    public boolean hasNext() {
-        if (this.next == null) {
-            return false;
-        }
-        return true;
-    }
-
-    public GSHSingleNode getNext() {
-        if (this.hasNext()) {
-            return this.next;
-        }
-        return null;
-    }
 
 
 }

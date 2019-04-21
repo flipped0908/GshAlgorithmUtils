@@ -3,16 +3,16 @@ package gsh.demo.practice02_linklist;
 public class GSHLinkUtils {
 
 
-    public static boolean hasNext(GSHSingleNode node){
-        if(node.next==null){
+    public static boolean hasNext(GSHSingleNode node) {
+        if (node.next == null) {
             return false;
         }
         return true;
     }
 
 
-    public static GSHSingleNode getList(int[] arr){
-        if(arr == null || arr.length == 0){
+    public static GSHSingleNode getList(int[] arr) {
+        if (arr == null || arr.length == 0) {
             return null;
         }
 
@@ -27,13 +27,48 @@ public class GSHLinkUtils {
         return head;
     }
 
-    public static void printList(GSHSingleNode head){
-        if(head == null){
+    public static void printList(GSHSingleNode head) {
+        if (head == null) {
             return;
         }
         GSHSingleNode cur = head;
-        while (cur!=null){
-            System.out.print(" "+cur.value+" -> ");
+        while (cur != null) {
+            System.out.print(" " + cur.value + " -> ");
+            cur = cur.next;
+        }
+        System.out.print(" null");
+        System.out.println();
+    }
+
+
+
+    public static GSHDoubleNode getDoubleList(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return null;
+        }
+
+        GSHDoubleNode head = new GSHDoubleNode(arr[0]);
+        head.pre = null;
+        head.next = null;
+        GSHDoubleNode cur = head;
+        for (int i = 1; i < arr.length; i++) {
+            GSHDoubleNode node = new GSHDoubleNode(arr[i]);
+            cur.next = node;
+            node.pre = cur;
+            cur = node;
+
+        }
+        return head;
+    }
+
+
+    public static void printDoubleList(GSHDoubleNode head) {
+        if (head == null) {
+            return;
+        }
+        GSHDoubleNode cur = head;
+        while (cur != null) {
+            System.out.print(" " + cur.value + " -> ");
             cur = cur.next;
         }
         System.out.print(" null");
@@ -42,8 +77,8 @@ public class GSHLinkUtils {
 
 
     public static void main(String[] args) {
-        int[] arr = {1,2,3,4};
-        printList(getList(arr));
+        int[] arr = {1, 2, 3, 4};
+        printDoubleList(getDoubleList(arr));
     }
 
 
