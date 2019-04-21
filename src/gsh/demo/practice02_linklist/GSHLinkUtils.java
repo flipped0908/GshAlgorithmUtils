@@ -131,6 +131,79 @@ public class GSHLinkUtils {
         return Code03_reverseList.reverseSPart(head,from,to);
     }
 
+    public static GSHSingleNode delete(GSHSingleNode head, int k) {
+
+        if (head == null) {
+            return null;
+        }
+        int size = GSHLinkUtils.sizeS(head);
+        if (k > size) {
+            throw new RuntimeException("index out of link");
+        }
+        if (k == 1) {
+            if (size == 1) {
+                return null;
+            }
+            GSHSingleNode cur = head;
+            head = head.next;
+            cur = null;
+            return head;
+        }
+
+        GSHSingleNode res = head;
+
+        int index = 1;
+        while (head != null) {
+            if (index + 1 == k) {
+                if (head.next.next != null) {
+                    head.next = head.next.next;
+                } else {
+                    head.next = null;
+                }
+                break;
+            }
+            head = head.next;
+            index++;
+        }
+        return res;
+    }
+
+
+
+
+    public static GSHSingleNode add(GSHSingleNode head, int index, int value) {
+
+        int size = GSHLinkUtils.sizeS(head);
+
+        if (index > size + 1) {
+            throw new RuntimeException(" out of index link");
+        }
+
+        GSHSingleNode node = new GSHSingleNode(value);
+        GSHSingleNode cur = head;
+        if(index==1){
+            head = node;
+            head.next = cur;
+            return head;
+        }
+
+        int k = 1;
+        while (k < index-1) {
+            cur = cur.next;
+            k++;
+        }
+        if (k == size) {
+            cur.next = node;
+            return head;
+        }
+
+        GSHSingleNode next = cur.next;
+        cur.next = node;
+        node.next = next;
+        return head;
+
+
+    }
 
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4};
