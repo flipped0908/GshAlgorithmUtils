@@ -107,6 +107,7 @@ public class GSHLinkUtils {
         return head;
     }
 
+
     public static void printCircleList(GSHSingleNode head) {
         if (head == null) {
             return;
@@ -123,6 +124,11 @@ public class GSHLinkUtils {
         }
         System.out.print(" circle end ");
         System.out.println();
+    }
+
+
+    public static GSHSingleNode reverse(GSHSingleNode head ,int from ,int to){
+        return Code03_reverseList.reverseSPart(head,from,to);
     }
 
 
