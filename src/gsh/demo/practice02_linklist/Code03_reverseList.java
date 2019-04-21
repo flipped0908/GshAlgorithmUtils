@@ -27,7 +27,7 @@ public class Code03_reverseList {
 
     public static GSHSingleNode reverseSPart(GSHSingleNode head, int from, int to) {
 
-        if (head == null || from >= to || GSHLinkUtils.sizeS(head) < to) {
+        if (head == null || from > to || GSHLinkUtils.sizeS(head) < to) {
             throw new RuntimeException(" args is wrong");
         }
 
@@ -107,7 +107,7 @@ public class Code03_reverseList {
 
         int[] arr = {1, 2, 3, 4, 5, 6};
 
-        GSHLinkUtils.printList(reverseSPart(GSHLinkUtils.getList(arr), 1, 6));
+        GSHLinkUtils.printList(reverseSPart(GSHLinkUtils.getList(arr), 1, 1));
 
 
         // GSHLinkUtils.printDoubleList(reverseD(GSHLinkUtils.getDoubleList(arr)));
