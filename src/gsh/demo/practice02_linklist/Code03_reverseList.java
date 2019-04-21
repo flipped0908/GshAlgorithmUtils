@@ -81,7 +81,7 @@ public class Code03_reverseList {
     }
 
 
-    // 翻转单链表
+    // 翻转双链表
 
     public static GSHDoubleNode reverseD(GSHDoubleNode head) {
 

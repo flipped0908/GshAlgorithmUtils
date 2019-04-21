@@ -27,6 +27,7 @@ public class GSHLinkUtils {
         return head;
     }
 
+
     public static void printList(GSHSingleNode head) {
         if (head == null) {
             return;
@@ -39,7 +40,6 @@ public class GSHLinkUtils {
         System.out.print(" null");
         System.out.println();
     }
-
 
 
     public static GSHDoubleNode getDoubleList(int[] arr) {
@@ -75,6 +75,7 @@ public class GSHLinkUtils {
         System.out.println();
     }
 
+
     public static int sizeS(GSHSingleNode node) {
         if (node == null) {
             return 0;
@@ -88,10 +89,46 @@ public class GSHLinkUtils {
     }
 
 
+    public static GSHSingleNode getCircleList(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            return null;
+        }
+
+        GSHSingleNode head = new GSHSingleNode(arr[0]);
+        GSHSingleNode cur = head;
+        for (int i = 1; i < arr.length; i++) {
+            GSHSingleNode node = new GSHSingleNode(arr[i]);
+            cur.next = node;
+            cur = node;
+        }
+
+        cur.next = head;
+
+        return head;
+    }
+
+    public static void printCircleList(GSHSingleNode head) {
+        if (head == null) {
+            return;
+        }
+        GSHSingleNode cur = head;
+        while (cur != null) {
+            System.out.print(" " + cur.value + " -> ");
+            if (cur.next == head) {
+                System.out.print(" " + head.value + " -> ");
+                break;
+            }
+            cur = cur.next;
+
+        }
+        System.out.print(" circle end ");
+        System.out.println();
+    }
+
 
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4};
-        printDoubleList(getDoubleList(arr));
+        printCircleList(getCircleList(arr));
     }
 
 
