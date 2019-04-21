@@ -75,6 +75,19 @@ public class GSHLinkUtils {
         System.out.println();
     }
 
+    public static int sizeS(GSHSingleNode node) {
+        if (node == null) {
+            return 0;
+        }
+        int size = 1;
+        while (node.next != null) {
+            node = node.next;
+            size++;
+        }
+        return size;
+    }
+
+
 
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4};
