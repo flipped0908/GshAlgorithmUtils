@@ -127,9 +127,10 @@ public class GSHLinkUtils {
     }
 
 
-    public static GSHSingleNode reverse(GSHSingleNode head ,int from ,int to){
-        return Code03_reverseList.reverseSPart(head,from,to);
+    public static GSHSingleNode reverse(GSHSingleNode head, int from, int to) {
+        return Code03_reverseList.reverseSPart(head, from, to);
     }
+
 
     public static GSHSingleNode delete(GSHSingleNode head, int k) {
 
@@ -169,8 +170,6 @@ public class GSHLinkUtils {
     }
 
 
-
-
     public static GSHSingleNode add(GSHSingleNode head, int index, int value) {
 
         int size = GSHLinkUtils.sizeS(head);
@@ -181,14 +180,14 @@ public class GSHLinkUtils {
 
         GSHSingleNode node = new GSHSingleNode(value);
         GSHSingleNode cur = head;
-        if(index==1){
+        if (index == 1) {
             head = node;
             head.next = cur;
             return head;
         }
 
         int k = 1;
-        while (k < index-1) {
+        while (k < index - 1) {
             cur = cur.next;
             k++;
         }
@@ -204,6 +203,7 @@ public class GSHLinkUtils {
 
 
     }
+
 
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4};
