@@ -101,17 +101,54 @@ public class Code03_leastCountChangeMoney {
     }
 
 
-
     /**
-     *  修改为动态规划
-     * */
+     * 修改为动态规划
+     */
 
+    public int minCoins(int[] arr, int aim) {
+
+        if (arr == null || arr.length == 0 || aim < 0) {
+            return 0;
+        }
+
+        int N = arr.length;
+
+        int dp[][] = new int[N + 1][aim + 1];
+
+        // basecase
+
+        for (int i = 0; i < aim + 1; i++) {
+            dp[N][i] = -1;
+        }
+        dp[N][0] = 0;
+
+
+        for (int i = N - 1; i > -1; i--) {
+            for (int j = 0; j < aim + 1; j++) {
+                if (dp[i + 1][j] != -1) {
+                    dp[i][j] = dp[i + 1][j];
+                }
+                if (j - arr[i] >= 0 && dp[i][j - arr[i]] != -1) {
+                    if (dp[i][j] == -1) {
+                        dp[i][j] = dp[i][j - arr[i]] + 1;
+                    } else {
+                        dp[i][j] = Math.min(dp[i][j], dp[i][j - arr[i]] + 1);
+                    }
+                }
+
+            }
+        }
+
+        return dp[0][aim];
+
+
+    }
 
 
     public static void main(String[] args) {
 
-        int[] arr = {5,3};
-        System.out.println(process3(arr,1,2));
+        int[] arr = {5, 3};
+        System.out.println(process3(arr, 1, 2));
     }
 
 
