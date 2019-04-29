@@ -9,7 +9,6 @@ public class Code06_findKTimesNum {
     // 转化为 k 进制 的数
 
     public static int[] changeToK(int a, int k) {
-
         int[] res = new int[32];
         int index = 0;
         while (a > 0) {
@@ -17,21 +16,17 @@ public class Code06_findKTimesNum {
             a = a / k;
         }
         return res;
-
     }
 
 
     public static int changeTo10(int a[], int k) {
-
         int res = 0;
         int tmp = 1;
         for (int i = 0; i < a.length; i++) {
             res += a[i] * tmp;
             tmp = k * tmp;
         }
-
         return res;
-
     }
 
 
@@ -47,7 +42,6 @@ public class Code06_findKTimesNum {
 
 
     public static int getRes(int[] arr, int K) {
-
         int[] tmp = new int[32];
         for (int i = 0; i < arr.length; i++) {
             int[] a = changeToK(arr[i], K);
