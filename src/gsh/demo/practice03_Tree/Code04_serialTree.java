@@ -19,14 +19,11 @@ public class Code04_serialTree {
     }
 
     public static TreeNode conSerialByStrig(String str) {
-
         String[] arr = str.split("!");
         Queue<String> queue = new LinkedList<>();
-
         for (int i = 0; i < arr.length; i++) {
             queue.offer(arr[i]);
         }
-
         return reSailPre(queue);
     }
 
