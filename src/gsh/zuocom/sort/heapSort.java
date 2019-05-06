@@ -3,7 +3,7 @@ package gsh.zuocom.sort;
 import java.lang.reflect.Array;
 
 public class heapSort {
-    // 数组 堆排序
+    // 数组 堆排序  构建小根堆
     public static void sort(int[] arr) {
         // 把 大元素 上移动
         for (int i = 0; i < arr.length; i++) {
@@ -12,6 +12,7 @@ public class heapSort {
         // 把 大元素 和 头元素交换 头元素下沉 保证 头元素最大
         int size = arr.length;
         swap(arr, 0, --size);
+
         while (size > 0) {
             down(arr, 0, size);
             swap(arr, 0, --size);
