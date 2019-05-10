@@ -34,8 +34,8 @@ public class Code14_StringsInterlaceIntoGroups {
 
         for (int i = 1; i < arr1.length + 1; i++) {
             for (int j = 1; j < arr2.length + 1; j++) {
-                if (((arr1[i - 1] == aimarr[i + j - 1]) && dp[i - 1][j])
-                        || (arr2[j - 1] == aimarr[i + j - 1] && dp[i][j - 1])) {
+                if (  (arr1[i - 1] == aimarr[i + j - 1] && dp[i - 1][j])
+                        || (arr2[j - 1] == aimarr[i + j - 1] && dp[i][j - 1])  ) {
                     dp[i][j] = true;
                 }
             }
