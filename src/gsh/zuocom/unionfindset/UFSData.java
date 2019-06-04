@@ -18,12 +18,10 @@ public class UFSData {
     public void createSet(List<UFSNode> L) {
         fathermap.clear();
         sizemap.clear();
-
         for (UFSNode ufsNode : L) {
             fathermap.put(ufsNode, ufsNode);
             sizemap.put(ufsNode, 1);
         }
-
     }
 
     // 找 某个节点的头节点

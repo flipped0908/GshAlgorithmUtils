@@ -30,6 +30,26 @@ public class quicksort {
         return new int[]{less + 1, more};
     }
 
+
+    int[] pattion1(int[] arr, int l, int r) {
+        int less = l - 1;
+        int more = r;
+        while (l < more) {
+            if (arr[l] < arr[more]) {
+                swap(arr, less + 1, l);
+                less++;
+                l++;
+            } else if (arr[l] > arr[more]) {
+                swap(arr, l, r);
+                more--;
+            } else {
+                l++;
+            }
+        }
+        return new int[]{less + 1, more};
+    }
+
+
     public static void swap(int[] arr, int i, int j) {
         int tmp = arr[i];
         arr[i] = arr[j];
